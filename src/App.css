@@ -1,5 +1,5 @@
 * {
-	box-sizing: border-box; /* inclut le padding et margin ds le calcul de la largeur
+	box-sizing: border-box; /* inclut le padding et margin ds le calcul de la largeur */
 }
 
 .App {
@@ -115,7 +115,50 @@ button:hover:not(.btn_delete) {
 	font-weight: 700;
 }
 
-/** FOOTER **/
+/***** FAVORIS ******/
+
+a {
+	color: #fff;
+	font-weight: 700;
+}
+
+.displayCard {
+	background-color: #ddc6fa;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width: 240px;
+	gap: 5px;
+}
+
+.displayCard img {
+	border: 1px solid pink;
+	width: 70px;
+	height: 70px;
+	object-fit: contain;
+}
+
+.displayCard span {
+	position: relative;
+}
+
+.heartIconCharacters {
+	position: absolute;
+	left: 0px;
+	top: -52px;
+	color: yellow;
+	cursor: pointer;
+}
+
+.heartIconCharacters:hover {
+	position: absolute;
+	color: rgb(249, 96, 185);
+	transform: scale(1.4);
+	cursor: pointer;
+}
+
+/***** FOOTER ******/
 
 .App_footer {
 	background-color: #170036;

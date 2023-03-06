@@ -1,28 +1,33 @@
 import '../App.css';
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+
+// à écrire sur les pages où on veut un icone
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // import de l'icone mui
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 //! installer dans cet ordre : 
 //! yarn add @mui/material @emotion/react @emotion/styled
 
-// export class Credential { constructor(name, password) {  
-//         this.name = name;
-//         this.password = password; }}
-
-//* Dataline contient id (= user + date) + credential qui contient name + password
-// export class DataLine {constructor(id, credential) {
-//         this.id = id;
-//         this.credential = credential;}}
-
+// import des photos
+import molang1 from "../assets/molang1.gif";
+import molang2 from "../assets/molang2.gif";
+import molang3 from "../assets/molang3.png";
+import molang4 from "../assets/molang4.gif";
+import pusheen1 from "../assets/pusheen1.png";
+import pusheen2 from "../assets/pusheen2.png";
+import pusheen3 from "../assets/pusheen3.png";
+import pusheen4 from "../assets/pusheen4.png";
+import chat1 from "../assets/chat1.jpg";
+import chat2 from "../assets/chat2.gif";
 
 const Home = () => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
-    const [data, setData] = useState([]);    // if (data == null) data = [];
+    const [data, setData] = useState([]);
     const [read, setRead] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -69,7 +74,7 @@ const Home = () => {
         setRead(false); //! ne pas oublier de remettre read sur false
     };
 
-    // lire  la clé ds le storage   //! ne fonctionne pas
+    //! lire  la clé ds le storage 
     const readData = () => {
         if (data.length > 0) {
             localStorage.getItem('data') && (
@@ -84,7 +89,26 @@ const Home = () => {
 
     return (<>
         <div className="App">
+
             <main>
+
+                <section className='displayCard'>
+                    <div><Link to="/favoris">vers Favoris</Link></div>
+
+                    {/* //! onClick sur le coeur de l'image = save en storage et la réafficher ds mes favoris */}
+                    <div>
+                        <span><img src={molang1} alt="molang" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
+                        <span><img src={molang2} alt="molang" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
+                        <span><img src={molang3} alt="molang" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
+                        <span><img src={molang4} alt="molang" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
+                        <span><img src={pusheen1} alt="pusheen" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
+                        <span><img src={pusheen2} alt="pusheen" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
+                        <span><img src={pusheen3} alt="pusheen" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
+                        <span><img src={pusheen4} alt="pusheen" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
+                        <span><img src={chat1} alt="chat" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
+                        <span><img src={chat2} alt="chat" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
+                    </div>
+                </section>
                 <form className="form" onSubmit={(e) => handleSubmit(e)}>
                     <label htmlFor="userName">Name :
                         <input
