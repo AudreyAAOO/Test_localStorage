@@ -65,13 +65,13 @@ const Home = () => {
     //! efface toutes les clés ds le storage
     const removeAllData = () => {
         localStorage.clear(); // ok
-        setData("");
+        setData([]);
         setRead(false); //! ne pas oublier de remettre read sur false
     };
 
     // lire  la clé ds le storage   //! ne fonctionne pas
     const readData = () => {
-        if (data) {
+        if (data.length > 0) {
             localStorage.getItem('data') && (
                 // attention vérifier qu'il existe des datas avat de parser sinon erreur
                 JSON.parse(localStorage.getItem('data'))
@@ -79,12 +79,8 @@ const Home = () => {
             setRead(true);  // condition pour afficher les données
         } else {
             setErrorMsg("il n'y a rien à afficher, veuillez entrer une donnée");
-            console.log(errorMsg);
         }
     }
-
-
-
 
     return (<>
         <div className="App">
@@ -106,12 +102,10 @@ const Home = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         /></label>
+
                     <div className='button'>
+                        <button type="submit">Done</button> {/* //! par défaut un button est de type submit */}
 
-                        {/* //! par défaut un button est de type submit */}
-                        <button type="submit">Done</button>
-
-                        {/* <button type="button" onClick={remove}>Remove last data </button>*/}
                         {/* //! si on ne veut pas qu'il redéclenche la fonction liée au onSubmit, il faut les passer en type=button */}
                         <button type="button" className="btn_delete" disabled={true} >Remove ALL data
                             <DeleteForeverOutlinedIcon
@@ -122,15 +116,15 @@ const Home = () => {
                         </button>
 
                         <button type="button" onClick={readData}>Read data</button>
-                        {/* data.length > 0 */}
-             {read ? (
-                        data.map((elem) => {
-                            // console.log(elem);
-                            return <div key={elem.id}>
-                                <span>Bonjour {`${elem.name.charAt(0).toUpperCase() + elem.name.slice(1)}`}</span>
-                            </div>
-                        })
-                    ) : (
+
+                        {read ? (
+                            data.map((elem) => {
+                                // console.log(elem);
+                                return <div key={elem.id}>
+                                    <span>Bonjour {`${elem.name.charAt(0).toUpperCase() + elem.name.slice(1)}`}</span>
+                                </div>
+                            })
+                        ) : (
                             <p className={errorMsg && "error_msg"}>{errorMsg}</p>
                         )}
                     </div>
