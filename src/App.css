@@ -1,38 +1,127 @@
 .App {
-  text-align: center;
+	color: white;
+	width: 100vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App_header {
+	background-color: #170036;
+	border-bottom: #b3b3b3 1px solid;
+	margin: 0;
+	padding: 20px;
+	font-weight: 700;
+	line-height: 30px;
+	font-size: 30px;
+	text-align: center;
+	color: #ffffff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App_header > span {
+	margin: 5px 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1 {
+	font-size: 40px;
+}
+h2 {
+	font-size: 30px;
+}
+h3 {
+	font-size: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+main {
+	height: 58vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 50px;
+	background-image: url("https://i.ibb.co/cbHkZjQ/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	box-shadow: inset -6px -4px 2px rgba(255, 255, 255, 0.03);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form {
+	height: 400px;
+	width: 60vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.1);
+	/* glassmorphisme pour améliorer l'apparence de la note. Le glassmorphisme est une tendance de conception d'interface utilisateur qui imite l'apparence du verre dépoli. */
+	/* permet d’appliquer des filtres à ce qu’il y a derrière l’élément (backdrop), et non à son arrière-plan (background) */
+	backdrop-filter: blur(5px);
+	box-shadow: inset -6px -4px 2px rgba(255, 255, 255, 0.03);
+	border-radius: 15px;
+	border: 1.5px solid rgba(255, 255, 255, 0.326);
+	color: #fff;
+}
+
+.button {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	margin: 20px;
+}
+
+.button > button {
+	background: transparent;
+	transition: 0.2s ease-in-out;
+	border: 1.5px solid #fff;
+	border-radius: 10px;
+	color: #fff;
+	padding: 10px 10px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+button:hover:not(.btn_delete) {
+	background: #fff;
+	border: 1.5px solid #fff;
+	color: #4b1589;
+}
+
+.button .btn_delete {
+	display: flex;
+	align-items: center;
+	font-size: 12px;
+	cursor: default;
+	color: #b9a5ab;
+}
+
+.button .btn_delete .note_delete:hover {
+	color: #fff;
+	transform: scale(1.4);
+	cursor: pointer;
+}
+
+.App_footer {
+	background-color: #170036;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 60px;
+	width: 100%;
+	line-height: 20px;
+	font-size: 16px;
+	color: #fff;
+}
+
+footer > span {
+	padding: 10px 2px;
+	background: rgba(103, 92, 129, 0.675);
+	backdrop-filter: grayscale(1) contrast(3) blur(1px);
+}
+
+footer span > a {
+	color: #fff;
+}
+
+footer span > a:hover {
+	color: rgb(232, 2, 236);
+	text-shadow: 0 -1px 4px #5000fc, 0 -2px 10px rgb(30, 0, 253),
+		0 -10px 20px #00c3ff, 0 -18px 40px rgb(0, 255, 242);
 }
