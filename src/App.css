@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box; /* inclut le padding et margin ds le calcul de la largeur
+}
+
 .App {
 	color: white;
 	width: 100vw;
@@ -7,8 +11,8 @@
 .App_header {
 	background-color: #170036;
 	border-bottom: #b3b3b3 1px solid;
-	height: 80px;
-	padding: 15px;
+	height: 100px;
+	padding: 10px;
 	font-weight: 700;
 	line-height: 20px;
 	text-align: center;
@@ -31,8 +35,8 @@ h3 {
 }
 
 main {
-	/*! dimension main - hauteur du header(80) - hauteur du footer(95) = affichage correct du footer  */
-	height: calc((100vh- 190px));
+	/*! dimension main - hauteur du header(100) - hauteur du footer(95) = affichage correct du footer  */
+	height: calc(100vh - 195px);
 	display: flex;
 	justify-content: center;
 	align-items: center;

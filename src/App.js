@@ -28,6 +28,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        {/* <Route path="/favoris" element={<Favoris />} /> */}
       </Routes>
       <Footer /> 
     </Router>
