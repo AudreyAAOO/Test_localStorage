@@ -110,6 +110,14 @@ button:hover:not(.btn_delete) {
 	color: #fff;
 }
 
+.error_msg {
+	color: #f3cccc;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+/** FOOTER **/
+
 footer > span {
 	padding: 10px 2px;
 	background: rgba(103, 92, 129, 0.675);
