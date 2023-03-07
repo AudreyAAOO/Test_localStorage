@@ -79,70 +79,67 @@ const Home = () => {
     }
 
 
-        return (<>
-            <div className="App">
-                <main>
-                    {/* <section className='displayCard'>
+    return (<>
+        <div className="App">
+            <main>
+                {/* <section className='displayCard'>
                         <div><Link to="/favoris">vers Favoris</Link></div>
 
                         {/* //! onClick sur le coeur de l'image = save en storage et la réafficher ds mes favoris */}
 
-                    {/* </section> */}
-                    <form className="form" onSubmit={(e) => handleSubmit(e)}>
-                        <label htmlFor="userName">Name :
-                            <input
-                                placeholder="Name"
-                                id="userName"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                            /></label>
-                        <label htmlFor="userPassword">Password :
-                            <input
-                                type="password"
-                                id="userPassword"
-                                placeholder="Password"
-                                autoComplete='off'
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            /></label>
+                {/* </section> */}
+                <form className="form" onSubmit={(e) => handleSubmit(e)}>
+                    <label htmlFor="userName">Name :
+                        <input
+                            placeholder="Name"
+                            id="userName"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        /></label>
+                    <label htmlFor="userPassword">Password :
+                        <input
+                            type="password"
+                            id="userPassword"
+                            placeholder="Password"
+                            autoComplete='off'
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        /></label>
 
-                        <div className='button'>
-                            <button type="submit">Done</button> {/* //! par défaut un button est de type submit */}
+                    <div className='button'>
+                        <button type="submit">Done</button> {/* //! par défaut un button est de type submit */}
 
-                            {/* //! si on ne veut pas qu'il redéclenche la fonction liée au onSubmit, il faut les passer en type=button */}
-                            <button type="button" className="btn_delete" disabled={true} >Remove ALL data
-                                <DeleteForeverOutlinedIcon
-                                    className="note_delete"
-                                    aria-hidden="true"
-                                    onClick={removeAllData}
-                                ></DeleteForeverOutlinedIcon>
-                            </button>
+                        {/* //! si on ne veut pas qu'il redéclenche la fonction liée au onSubmit, il faut les passer en type=button */}
+                        <button type="button" className="btn_delete" disabled={true} >Remove ALL data
+                            <DeleteForeverOutlinedIcon
+                                className="note_delete"
+                                aria-hidden="true"
+                                onClick={removeAllData}
+                            ></DeleteForeverOutlinedIcon>
+                        </button>
 
-                            <button type="button" onClick={readData}>Read data</button>
-
-
-                            {read ? (<>
-                                {
-                                    data.map((elem) => {
-                                        // console.log(elem);
-                                        return <div key={elem.id}>
-                                            <span>Bonjour {`${elem.name
-                                                .charAt(0)
-                                                .toUpperCase() +
-                                                elem.name.slice(1)}`}</span>
-                                        </div>
-                                    })
-                                }
-                            </>) : (
-                                <p className={errorMsg && "error_msg"}>{errorMsg}</p>
-                            )}
+                        <button type="button" onClick={readData}>Read data</button>
 
 
-                        </div>
-                    </form>
-                </main>
-            </div>
-        </>);
-    };
+                        {read ? (
+                            data.map((elem) => {
+                                // console.log(elem);
+                                return <div key={elem.id}>
+                                    <span>Bonjour {`${elem.name
+                                        .charAt(0)
+                                        .toUpperCase() +
+                                        elem.name.slice(1)}`}</span>
+                                </div>
+                            })
+
+                        ) : (
+                            <p className={errorMsg && "error_msg"}>{errorMsg}</p>
+                        )}
+                    </div>
+                </form>
+            </main>
+        </div>
+    </>);
+};
 
 export default Home;
