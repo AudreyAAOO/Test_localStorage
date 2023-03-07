@@ -1,4 +1,4 @@
-// import '../App.css';
+import '../App.css';
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
@@ -17,14 +17,9 @@ import pusheen4 from "../assets/pusheen4.png";
 import chat1 from "../assets/chat1.jpg";
 import chat2 from "../assets/chat2.gif";
 
-
-
-
 const Favoris = () => {
 
-    const [favCard, setFavCard] = useState([]);
-    const [read, setRead] = useState(false);
-    const [errorMsg, setErrorMsg] = useState("");
+    // const [favCard, setFavCard] = useState([]);
     // const [read2, setRead2] = useState(false);
     // const [errorMsg2, setErrorMsg2] = useState("");
 
@@ -63,10 +58,11 @@ const Favoris = () => {
     // }
 
     return (<>
-        <div className="App">
+        <div className="App"> 
 
             <main className="displayFavorisPage">
                 <div><Link to="/">vers Home</Link></div>
+                <section className='displayCard'>
                 <div>
                     <span>
                         <img src={molang1} alt="molang" />
@@ -91,9 +87,10 @@ const Favoris = () => {
                     <span><img src={chat1} alt="chat" /><FontAwesomeIcon onClick={handleLike} className="heartIconCharacters" icon={["far", "heart"]} /></span>
                     <span><img src={chat2} alt="chat" /><FontAwesomeIcon onClick={handleLike} className="heartIconCharacters" icon={["far", "heart"]} /></span>
                 </div>
+                
                 {/* <button type="button" onClick={readCard}>Read data</button> */}
 
-                <div>***
+            </section>
 
                     {/* {read2 ? (<>
     { */}
@@ -109,8 +106,8 @@ const Favoris = () => {
     <p className={errorMsg2 && "error_msg"}>{errorMsg2}</p>
 )
 } */}
-                </div>   </main>
-        </div>
+            </main>
+         </div> 
 
     </>)
 }

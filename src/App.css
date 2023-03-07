@@ -33,8 +33,8 @@ h2 {
 h3 {
 	font-size: 15px;
 }
-/* .displayFavorisPage  */
-main {
+
+main  {
 	/*! dimension main - hauteur du header(100) - hauteur du footer(95) = affichage correct du footer  */
 	height: calc(100vh - 195px);
 	display: flex;
@@ -116,6 +116,13 @@ button:hover:not(.btn_delete) {
 }
 
 /***** FAVORIS ******/
+
+.displayFavorisPage {
+	width: 100vw;
+	height: calc(100vh - 195px);
+	display: flex;
+	flex-direction: column;
+} 
 
 a {
 	color: #fff;

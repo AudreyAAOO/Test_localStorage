@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // import de l'icone mui
-import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
+// import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
+
+
 //! installer dans cet ordre : 
 //! yarn add @mui/material @emotion/react @emotion/styled
 
@@ -60,7 +62,7 @@ const Home = () => {
 
     //! efface toutes les clés ds le storage
     const removeAllData = () => {
-        localStorage.clear(); // ok
+        localStorage.clear();
         setData([]);
         setRead(false); //! ne pas oublier de remettre read sur false
     };
@@ -82,12 +84,10 @@ const Home = () => {
     return (<>
         <div className="App">
             <main>
-                {/* <section className='displayCard'>
-                        <div><Link to="/favoris">vers Favoris</Link></div>
-
-                        {/* //! onClick sur le coeur de l'image = save en storage et la réafficher ds mes favoris */}
-
-                {/* </section> */}
+                <section className='displayCard'>
+                    <div><Link to="/favoris">vers Favoris</Link></div>
+                    {/* //! onClick sur le coeur de l'image = save en storage et la réafficher ds mes favoris */}
+                </section>
                 <form className="form" onSubmit={(e) => handleSubmit(e)}>
                     <label htmlFor="userName">Name :
                         <input
@@ -110,12 +110,14 @@ const Home = () => {
                         <button type="submit">Done</button> {/* //! par défaut un button est de type submit */}
 
                         {/* //! si on ne veut pas qu'il redéclenche la fonction liée au onSubmit, il faut les passer en type=button */}
-                        <button type="button" className="btn_delete" disabled={true} >Remove ALL data
-                            <DeleteForeverOutlinedIcon
+                        <button onClick={removeAllData} type="button" className="btn_delete">Remove ALL data
+                            {/* <DeleteForeverOutlinedIcon
                                 className="note_delete"
                                 aria-hidden="true"
-                                onClick={removeAllData}
+                                
                             ></DeleteForeverOutlinedIcon>
+                            disabled={true} */}
+
                         </button>
 
                         <button type="button" onClick={readData}>Read data</button>
