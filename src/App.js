@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // import des components
@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 
 // import des pages
 import Home from './pages/Home';
-import Favoris from "./pages/Favoris"
+// import Favoris from "./pages/Favoris"
 
 // // à écrire sur les pages où on veut un icone
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -29,7 +29,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/favoris" element={<Favoris />} />
+        {/* <Route path="/favoris" element={<Favoris />} /> */}
       </Routes>
       <Footer /> 
     </Router>

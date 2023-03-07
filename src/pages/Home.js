@@ -1,4 +1,4 @@
-import '../App.css';
+// import '../App.css';
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
@@ -10,17 +10,6 @@ import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined
 //! installer dans cet ordre : 
 //! yarn add @mui/material @emotion/react @emotion/styled
 
-// import des photos
-import molang1 from "../assets/molang1.gif";
-import molang2 from "../assets/molang2.gif";
-import molang3 from "../assets/molang3.png";
-import molang4 from "../assets/molang4.gif";
-import pusheen1 from "../assets/pusheen1.png";
-import pusheen2 from "../assets/pusheen2.png";
-import pusheen3 from "../assets/pusheen3.png";
-import pusheen4 from "../assets/pusheen4.png";
-import chat1 from "../assets/chat1.jpg";
-import chat2 from "../assets/chat2.gif";
 
 const Home = () => {
     const [name, setName] = useState('');
@@ -29,10 +18,10 @@ const Home = () => {
     const [read, setRead] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const id = 'user' + Date.now(); // const timestamp = Date.now();
-
         // pertinent que credential soit un objet (= une ligne d'infos sur l'utilisateur)
         const credential = { id: id, name: name, password: password };
         console.log('credential : ', credential);
@@ -54,6 +43,7 @@ const Home = () => {
         setErrorMsg(""); // Je fais disparaitre le message d'erreur et les input du form
     };
 
+
     // Récupérer les données dans le but de les afficher par exemple
     useEffect(() => {
         const items = localStorage.getItem('data');  // let data = JSON.parse(localStorage.getItem('data'));
@@ -61,6 +51,7 @@ const Home = () => {
             setData(JSON.parse(items));
         }
     }, []); //* tableau vide car nous ne voulons obtenir les données qu'une seule fois au chargement de la page
+
 
     // //! efface la dernière clé ds le storage
     // const remove = () => {
@@ -85,76 +76,73 @@ const Home = () => {
         } else {
             setErrorMsg("il n'y a rien à afficher, veuillez entrer une donnée");
         }
-    }
 
-    return (<>
-        <div className="App">
 
-            <main>
 
-                <section className='displayCard'>
-                    <div><Link to="/favoris">vers Favoris</Link></div>
+        return (<>
+            <div className="App">
+                <main>
+                    {/* <section className='displayCard'>
+                        <div><Link to="/favoris">vers Favoris</Link></div>
 
-                    {/* //! onClick sur le coeur de l'image = save en storage et la réafficher ds mes favoris */}
-                    <div>
-                        <span><img src={molang1} alt="molang" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
-                        <span><img src={molang2} alt="molang" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
-                        <span><img src={molang3} alt="molang" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
-                        <span><img src={molang4} alt="molang" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
-                        <span><img src={pusheen1} alt="pusheen" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
-                        <span><img src={pusheen2} alt="pusheen" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
-                        <span><img src={pusheen3} alt="pusheen" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
-                        <span><img src={pusheen4} alt="pusheen" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
-                        <span><img src={chat1} alt="chat" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
-                        <span><img src={chat2} alt="chat" /><FontAwesomeIcon className="heartIconCharacters" icon={["far", "heart"]} /></span>
-                    </div>
-                </section>
-                <form className="form" onSubmit={(e) => handleSubmit(e)}>
-                    <label htmlFor="userName">Name :
-                        <input
-                            placeholder="Name"
-                            id="userName"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        /></label>
-                    <label htmlFor="userPassword">Password :
-                        <input
-                            type="password"
-                            id="userPassword"
-                            placeholder="Password"
-                            autoComplete='off'
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        /></label>
+                        {/* //! onClick sur le coeur de l'image = save en storage et la réafficher ds mes favoris */}
 
-                    <div className='button'>
-                        <button type="submit">Done</button> {/* //! par défaut un button est de type submit */}
+                    {/* </section> */}
+                    <form className="form" onSubmit={(e) => handleSubmit(e)}>
+                        <label htmlFor="userName">Name :
+                            <input
+                                placeholder="Name"
+                                id="userName"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            /></label>
+                        <label htmlFor="userPassword">Password :
+                            <input
+                                type="password"
+                                id="userPassword"
+                                placeholder="Password"
+                                autoComplete='off'
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            /></label>
 
-                        {/* //! si on ne veut pas qu'il redéclenche la fonction liée au onSubmit, il faut les passer en type=button */}
-                        <button type="button" className="btn_delete" disabled={true} >Remove ALL data
-                            <DeleteForeverOutlinedIcon
-                                className="note_delete"
-                                aria-hidden="true"
-                                onClick={removeAllData}
-                            ></DeleteForeverOutlinedIcon>
-                        </button>
+                        <div className='button'>
+                            <button type="submit">Done</button> {/* //! par défaut un button est de type submit */}
 
-                        <button type="button" onClick={readData}>Read data</button>
+                            {/* //! si on ne veut pas qu'il redéclenche la fonction liée au onSubmit, il faut les passer en type=button */}
+                            <button type="button" className="btn_delete" disabled={true} >Remove ALL data
+                                <DeleteForeverOutlinedIcon
+                                    className="note_delete"
+                                    aria-hidden="true"
+                                    onClick={removeAllData}
+                                ></DeleteForeverOutlinedIcon>
+                            </button>
 
-                        {read ? (
-                            data.map((elem) => {
-                                // console.log(elem);
-                                return <div key={elem.id}>
-                                    <span>Bonjour {`${elem.name.charAt(0).toUpperCase() + elem.name.slice(1)}`}</span>
-                                </div>
-                            })
-                        ) : (
-                            <p className={errorMsg && "error_msg"}>{errorMsg}</p>
-                        )}
-                    </div>
-                </form>
-            </main>
-        </div>
-    </>);
-};
+                            <button type="button" onClick={readData}>Read data</button>
+
+
+                            {read ? (<>
+                                {
+                                    data.map((elem) => {
+                                        // console.log(elem);
+                                        return <div key={elem.id}>
+                                            <span>Bonjour {`${elem.name
+                                                .charAt(0)
+                                                .toUpperCase() +
+                                                elem.name.slice(1)}`}</span>
+                                        </div>
+                                    })
+                                }
+                            </>) : (
+                                <p className={errorMsg && "error_msg"}>{errorMsg}</p>
+                            )}
+
+
+                        </div>
+                    </form>
+                </main>
+            </div>
+        </>);
+    };
+}
 export default Home;
