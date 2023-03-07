@@ -76,7 +76,7 @@ const Home = () => {
         } else {
             setErrorMsg("il n'y a rien à afficher, veuillez entrer une donnée");
         }
-
+    }
 
 
         return (<>
@@ -144,5 +144,5 @@ const Home = () => {
             </div>
         </>);
     };
-}
+
 export default Home;
