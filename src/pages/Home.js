@@ -49,7 +49,7 @@ const Home = () => {
     // Récupérer les données dans le but de les afficher par exemple
     useEffect(() => {
         const items = localStorage.getItem('data');  // let data = JSON.parse(localStorage.getItem('data'));
-        if (items) {  // vérifier qu'il existe des datas avat de parser sinon erreur
+        if (items) {  // vérifier qu'il existe des datas avant de parser sinon erreur
             setData(JSON.parse(items));
         }
     }, []); //* tableau vide car nous ne voulons obtenir les données qu'une seule fois au chargement de la page
@@ -71,7 +71,7 @@ const Home = () => {
     const readData = () => {
         if (data.length > 0) {
             localStorage.getItem('data') && (
-                // attention vérifier qu'il existe des datas avat de parser sinon erreur
+                // attention vérifier qu'il existe des datas avant de parser sinon erreur
                 JSON.parse(localStorage.getItem('data'))
             )
             setRead(true);  // condition pour afficher les données
@@ -88,6 +88,7 @@ const Home = () => {
                     <div><Link to="/favoris">vers Favoris</Link></div>
                     {/* //! onClick sur le coeur de l'image = save en storage et la réafficher ds mes favoris */}
                 </section>
+
                 <form className="form" onSubmit={(e) => handleSubmit(e)}>
                     <label htmlFor="userName">Name :
                         <input

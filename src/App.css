@@ -34,7 +34,7 @@ h3 {
 	font-size: 15px;
 }
 
-main  {
+main {
 	/*! dimension main - hauteur du header(100) - hauteur du footer(95) = affichage correct du footer  */
 	height: calc(100vh - 195px);
 	display: flex;
@@ -110,7 +110,7 @@ button:hover:not(.btn_delete) {
 }
 
 .error_msg {
-	color: #f3cccc;
+	color: #f3ccf0;
 	font-size: 20px;
 	font-weight: 700;
 }
@@ -122,7 +122,7 @@ button:hover:not(.btn_delete) {
 	height: calc(100vh - 195px);
 	display: flex;
 	flex-direction: column;
-} 
+}
 
 a {
 	color: #fff;
